@@ -1,0 +1,136 @@
+<div class="container-fluid px-0" style="overflow:hidden;font-size: 1rem" [@flyIn]="'inactive'">
+  <div class="row mx-auto px-1 borderB">
+    <div class="col-12 mt-3">
+      <p><strong>商品明细</strong></p>
+      <div>{{shopPrice}}元加油券</div>
+    </div>
+    <div class="col-12 mt-2 pb-3">
+      <span>价格</span>
+      <span class="float-right">￥{{numberToFixed(salePrice)}} * 1</span>
+    </div>
+  </div>
+
+  <div class="row mx-auto px-1 py-3 borderB">
+    <div class="col-12">
+      <span><strong>支付方式</strong></span>
+    </div>
+    <div class="col-12 py-3">
+      <div class="row">
+        <div class="col-7">
+          <img class="fromImg mr-3 float-left" src="./assets/images/jian.png"/>
+          <div class="float-left" style=" color: #777777; padding-top:3px;">
+            <span>中国建设银行</span><br>
+            <span>信用卡支付</span>
+          </div>
+        </div>
+        <div class="col-5  text-right" style="padding-top: 2px">
+          <img class="fromImg-right" src="./assets/images/xuan.png"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mx-auto px-1 pt-3">
+    <div class="col-12 mb-2">
+      <span>商品金额</span>
+      <span class="float-right" style="color: red">￥{{numberToFixed(salePrice)}}</span>
+    </div>
+    <div class="col-12 mb-2">
+      <span>折扣</span>
+      <span class="float-right">{{disCount*10}}折</span>
+    </div>
+    <div class="col-12">
+      <span>优惠金额</span>
+      <span class="float-right" style="color: red">-¥{{numberToFixed(shopPrice-salePrice*disCount)}}</span>
+    </div>
+  </div>
+
+</div>
+
+
+<nav class="row mx-auto fixed-bottom font text-center">
+  <div class="col-8 border-top">实际支付：<span>￥{{numberToFixed(salePrice*disCount)}}</span></div>
+  <button class="col-4 px-0 btn-block buy" [disabled]="disabled" (click)="getAuth()"
+          [class.specialBtn]="disabled">
+    {{btnText}}
+  </button>
+</nav>
+
+<div id="mess_loaddinghtml5" *ngIf="isHaveLoad">
+  <div class="loadding">
+    <div class="loaddingtishi"></div>
+    <div class="spinner">
+      <div class="spinner-container container1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container2">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container3">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">建设银行交通安全信息卡认证</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm">
+          <div class="form-group">
+            <input type="tel"
+                   name="card"
+                   maxlength="18"
+                   #_card="ngModel"
+                   [(ngModel)]="card"
+                   class="form-control"
+                   required
+                   placeholder="请输入交通安全信息卡卡号">
+          </div>
+          <div class="form-group">
+            <input type="tel"
+                   name="telF"
+                   maxlength="4"
+                   #_telF="ngModel"
+                   [(ngModel)]="telF"
+                   class="form-control"
+                   required
+                   placeholder="请输入认证的手机号后四位">
+          </div>
+          <div class="input-group">
+            <input type="tel"
+                   name="yzm"
+                   maxlength="6"
+                   #_yzm="ngModel"
+                   [(ngModel)]="yzm"
+                   class="form-control"
+                   required
+                   placeholder="请输入验证码">
+            <div *ngIf="!isTime" class="input-group-text" (click)="getCode()">发送验证码</div>
+            <div *ngIf="isTime" class="input-group-text">重新发送({{second}}s)</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btnConfirm" (click)="authMsg()">认证
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

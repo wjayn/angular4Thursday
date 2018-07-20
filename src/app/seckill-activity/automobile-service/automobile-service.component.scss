@@ -1,0 +1,73 @@
+.bg-blue {
+  background: #50AFDF;
+  .down {
+    width: 18px;
+    margin-top: 6px;
+  }
+}
+
+.text-blue{
+  color: #007bff;
+}
+
+.nav-cell {
+  z-index: 200;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  ul {
+    background: #fff;
+  }
+}
+
+.classify {
+  i {
+    color: #50AFDF;
+    margin-top: 5px;
+  }
+}
+
+.goods {
+  background: #efefef;
+  //border-bottom: 2px solid #e0e0e0;
+  & .col-6 > div {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .goods-details {
+    font-size: .8rem;
+    line-height: 1.2;
+  }
+  .text-thought {
+    text-decoration: line-through;
+    color: #666;
+    font-size: .6rem;
+  }
+  button {
+    height: 2rem;
+    background: #2185D0;
+    font-size: .8rem;
+    letter-spacing: 0.08em;
+    &.sell-out {
+      background: #999;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: .7rem;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.noGoods {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+}

@@ -1,0 +1,55 @@
+.borderT {
+  border-top: 10px solid #d8d8d8;
+}
+
+.borderB {
+  border-bottom: 10px solid #d8d8d8;
+}
+
+.fromImg {
+  width: 28px;
+}
+
+.fromImg-right {
+  width: 20px;
+}
+
+.font {
+  height: 60px;
+  line-height: 60px;
+  font-size: 17px;
+  color: #333333;
+  .buy {
+    color: #fff;
+    background: #3ca8d9;
+    border: none;
+    outline: #3ca8d9 solid 1px;
+    position: relative;
+    z-index: 10000;
+  }
+  .specialBtn {
+    background: #ccc;
+    outline: #ccc solid 1px;
+  }
+}
+
+.modal-content {
+  margin-top: 40%;
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  .modal-body label {
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+  }
+  .input-group-text {
+    border-left: 0;
+    border-radius: 0 .25rem .25rem 0;
+  }
+  .btnConfirm {
+    width: 120px;
+    height: 46px;
+  }
+}
+

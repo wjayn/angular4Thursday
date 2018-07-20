@@ -1,0 +1,65 @@
+<!--
+
+<div *ngIf="isStart" class="container-fluid px-0" [@flyIn]="'inactive'">
+  <div class="row mx-auto mt-10 pb-3">
+    <img [routerLink]="['/seckill/activity']" [queryParams]="{'activityId':201}" class="img-list mt-3" src="./assets/images/2-2.png" alt=""
+         height="100%">
+    <img [routerLink]="['/seckill/activity']" [queryParams]="{'activityId':202}" class="img-list mt-3" src="./assets/images/2-3.png" alt=""
+         height="100%">
+    <img class="img-list mt-3" src="./assets/images/2-4-1.png" alt="" height="100%">
+    <img class="img-list mt-3" src="./assets/images/2-5-1.png" alt="" height="100%">
+    &lt;!&ndash;<img class="img-list mt-3" src="./assets/images/2-4.png" [routerLink]="['/seckill/car']" [queryParams]="{'activeType':1}" alt="" height="100%">&ndash;&gt;
+    &lt;!&ndash;<img class="img-list mt-3" src="./assets/images/2-5.png" [routerLink]="['/seckill/car']" [queryParams]="{'activeType':0}" alt="" height="100%">&ndash;&gt;
+  </div>
+</div>
+
+<div *ngIf="!isStart" class="container-fluid px-0" [@flyIn]="'inactive'">
+  <div class="row mx-auto mt-10 pb-3 position-relative">
+    <div class="countFont position-absolute text-center">距活动开始还有{{startCountNumber}}天</div>
+    <img class="img-list mt-3" src="./assets/images/2-2-1.png" alt="" height="100%" (click)="banImg($event)">
+    <img class="img-list mt-3" src="./assets/images/2-3-1.png" alt="" height="100%" (click)="banImg($event)">
+    <img class="img-list mt-3" src="./assets/images/2-4-1.png" alt="" height="100%" (click)="banImg($event)">
+    <img class="img-list mt-3" src="./assets/images/2-5-1.png" alt="" height="100%" (click)="banImg($event)">
+    &lt;!&ndash;<img class="img-list mt-3" src="./assets/images/2-5.png" [routerLink]="['/seckill/car']" [queryParams]="{'activeType':0}" alt="" height="100%">&ndash;&gt;
+  </div>
+</div>
+
+
+<img *ngIf="isStart" class="bg-img position-absolute" src="./assets/images/2-1.png" alt="" width="100%" [@flyIn]="'inactive'">
+<img *ngIf="!isStart" class="bg-img position-absolute" src="./assets/images/2-1-1.png" alt="" width="100%" [@flyIn]="'inactive'">
+-->
+
+<img class="bg-img position-absolute" src="./assets/images/2-11.png" alt="" width="100%" [@flyIn]="'inactive'">
+<div class="container-fluid px-0" [@flyIn]="'inactive'">
+  <div *ngIf="isStart" class="row mx-auto mt-10 pb-3 position-relative px-4">
+    <div class="countFont position-absolute text-center font-weight-bold">优惠6翻天</div>
+    <div class="col-6 mt-3 px-2">
+      <img [routerLink]="['/seckill/activity']" [queryParams]="{'activityId':201}" src="./assets/images/2-2-1.png" alt="" width="100%">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img [routerLink]="['/seckill/activity']" [queryParams]="{'activityId':202}" src="./assets/images/2-3-1.png" alt="" width="100%">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img [routerLink]="['/seckill/car']" [queryParams]="{'activeType':1}" src="./assets/images/2-4-1.png" alt="" width="100%">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img [routerLink]="['/seckill/car']" [queryParams]="{'activeType':0}" src="./assets/images/2-5-1.png" alt="" width="100%">
+    </div>
+  </div>
+
+  <div *ngIf="!isStart" class="row mx-auto mt-10 pb-3 position-relative px-4">
+    <div class="countFont position-absolute text-center font-weight-bold">距活动开始还有{{startCountNumber}}天</div>
+    <div class="col-6 mt-3 px-2">
+      <img src="./assets/images/2-2.png" alt="" width="100%" (click)="banImg($event)">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img src="./assets/images/2-3.png" alt="" width="100%" (click)="banImg($event)">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img src="./assets/images/2-4.png" alt="" width="100%" (click)="banImg($event)">
+    </div>
+    <div class="col-6 mt-3 px-2">
+      <img [routerLink]="['/seckill/car']" [queryParams]="{'activeType':0}" src="./assets/images/2-5-1.png" alt="" width="100%">
+    </div>
+  </div>
+</div>

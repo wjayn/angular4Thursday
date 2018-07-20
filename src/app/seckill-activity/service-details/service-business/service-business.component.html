@@ -1,0 +1,13 @@
+<div *ngIf="childShade" class="mb-big container-fluid px-0 fixed-bottom bg-white">
+  <div class="row mx-auto">
+    <div class="col-12 pt-3">
+      <i class="fa fa-close fa-lg float-right" (click)="close()"></i>
+    </div>
+    <div *ngFor="let item of goods.seller;let i=index;" class="col-12 mt-2" (click)="check(i)">
+      <div class="font-weight-bold pb-3">{{item?.name}}</div>
+      <div class="text-gray">{{item?.address}}</div>
+      <div class="text-gray pt-2 pb-3 border-bottom">咨询电话：{{item?.telephone}}</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="childShade" class="shade" (click)="close()"></div>

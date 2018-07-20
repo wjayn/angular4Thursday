@@ -1,0 +1,66 @@
+<div class="container-fluid px-0" [@flyIn]="'inactive'">
+  <div class="row mx-auto">
+    <img *ngIf="activityId==201" src="./assets/images/3-1.png" (click)="banImg($event)" width="100%" height="100%"/>
+    <img *ngIf="activityId==202" src="./assets/images/4-1.png" (click)="banImg($event)" width="100%" height="100%"/>
+    <img *ngIf="activityId==9 || activityId==10" src="./assets/images/meMarket/top.png" (click)="banImg($event)" width="100%" height="100%"/>
+    <div class="col-4 text-center offset-4 look mt-3" (click)="toLinkUser()">查看我的加油券</div>
+    <div class="col-12 mb-2 choose">请选择油券面额</div>
+  </div>
+  <div class="row text-center mr-0 px-3">
+    <div *ngFor="let money of moneys" class="col-4" (click)="saveId(money.id,money.saledPrice,money.price,money.disCount,money.isSale)">
+
+      <div *ngIf="money.isSale==0" class="price-box">
+        <img *ngIf="money.id==id" src="./assets/images/bgSelect.png" alt="" width="100%">
+        <img *ngIf="money.id!=id" src="./assets/images/bgUnselect.png" alt="" width="100%">
+        <div><span style="font-size: 1.4rem;font-weight: bold;margin-right: 3px;">{{money.price}}</span>元</div>
+        <div>售价：{{numberToFixed(money.saledPrice * money.disCount)}}元</div>
+      </div>
+
+      <div *ngIf="money.isSale==1" class="price-box">
+        <img src="./assets/images/soldOut1.png" alt="" width="100%">
+        <div><span style="font-size: 1.4rem;font-weight: bold;margin-right: 3px;">{{money.price}}</span>元</div>
+        <div>售价：{{numberToFixed(money.saledPrice * money.disCount)}}元</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row mx-auto mt-2">
+    <img *ngIf="activityId==201" src="./assets/images/3-2.png" (click)="banImg($event)" alt="" width="100%" height="100%">
+    <img *ngIf="activityId==202" src="./assets/images/4-2.png" (click)="banImg($event)" alt="" width="100%" height="100%">
+    <img *ngIf="activityId==9 || activityId==10" src="./assets/images/meMarket/rule.png" (click)="banImg($event)" alt="" width="100%" height="100%">
+    <div class="col-12 paddingB70">
+      <button class="container text-center buy" [disabled]="id==''" [ngClass]="{'disableClass': id==''}" (click)="buy()"
+              [style.background]="activityId==201 ? '#F9733E' : '#0078D7'">
+        立即购买
+      </button>
+    </div>
+  </div>
+
+
+  <div id="mess_loaddinghtml5" *ngIf="isHaveLoad">
+    <div class="loadding">
+      <div class="loaddingtishi"></div>
+      <div class="spinner">
+        <div class="spinner-container container1">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <swal #dialog></swal>
+</div>

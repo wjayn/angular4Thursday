@@ -1,0 +1,65 @@
+<div class="pb-60 container-fluid px-0" [@flyIn]="'inactive'">
+  <div class="bg-blue row mx-auto">
+    <div class="col-12 py-3">
+      {{goods?.name}}
+    </div>
+  </div>
+
+  <form #heroForm="ngForm">
+    <div class="row mx-auto border-bottom-5">
+      <div class="list col-12 px-4" (click)="selectBusiness()">
+        <div class="border-bottom py-3">
+          <img class="float-left" src="./assets/images/carService/i1.png" alt="" width="40px">
+          <span class="ml-3">选择服务商家</span>
+          <i class="fa fa-angle-right float-right" style="color: #fd7e14;"></i>
+          <span *ngIf="!isHaveBusiness" class="text-gray float-right mr-4">请选择</span>
+          <div *ngIf="isHaveBusiness" class="result">
+            {{business?.name}}<br>咨询电话：{{business?.telephone}}
+          </div>
+        </div>
+      </div>
+
+      <div class="list col-12 px-4 form-item item-line" id="selectDate">
+        <div class="border-bottom py-3">
+          <img class="float-left" src="./assets/images/carService/i2.png" alt="" width="40px">
+          <span class="ml-3">服务时间</span>
+          <i class="fa fa-angle-right float-right" style="color: #fd7e14;"></i>
+          <span *ngIf="!isHaveTime" class="text-gray float-right mr-4">请选择</span>
+          <div *ngIf="isHaveTime" id="showDate" class="result">{{htmlDateTime}}</div>
+        </div>
+      </div>
+
+      <div class="list col-12 px-4">
+        <div class="py-3">
+          <img class="float-left" src="./assets/images/carService/i3.png" alt="" width="40px">
+          <span class="ml-3">手机号</span>
+          <input type="tel" required class="text-gray float-right mr-4 border-0 text-right"
+                 maxlength="11" placeholder="请填写"
+                 [(ngModel)]="_phone" name="phone" #phone="ngModel">
+
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row mx-auto">
+    <div class="col-12 font-weight-bold py-2">详情</div>
+<!--
+    <div class="col-12 text-gray">{{goods?.description}}</div>
+-->
+    <div class="col-12 text-gray oilExplainText" #oilExplainText [innerHtml]="oilExplainHtml">
+    </div>
+  </div>
+
+
+</div>
+<nav class="row mx-auto fixed-bottom font text-center bg-white">
+  <div class="col-6 border-top text-danger">￥{{numberToFixed(goods?.salePrice)}}</div>
+  <button class="col-6 px-0 btn-block buy" [disabled]="!heroForm.form.valid || !isHaveBusiness || !isHaveTime" (click)="onSubmit()">
+    立即抢购
+  </button>
+</nav>
+<app-service-business [childShade]="shade" (voted)="onVoted($event)" (shade)="onShade($event)"></app-service-business>
+<swal #dialog></swal>
+

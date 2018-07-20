@@ -1,0 +1,106 @@
+<div *ngIf="isComplete" class="container-fluid px-0" [@flyIn]="'inactive'">
+
+  <div class="row mx-auto bg-white">
+    <div class="col-12 px-0 py-2 text-white" (click)="changeDown()">
+      <span class="px-3 float-left text-blue">{{titleText}}</span>
+      <img *ngIf="down" class="down float-left pt-2" src="./assets/images/carService/down.png" alt="">
+      <img *ngIf="!down" class="down float-left pt-2" src="./assets/images/carService/up.png" alt="">
+    </div>
+  </div>
+
+  <!--<div *ngIf="goodses?.length!=0">
+    <div *ngFor="let goods of goodses" class="goods row mx-auto clearfix py-3" (click)="buyGoods(goods)">
+      <div class="col-5 pr-0">
+        &lt;!&ndash;<img src="./assets/images/carService/del.png" alt="" width="100%">&ndash;&gt;
+        <img [src]="goods.coverImg" alt="" width="100%" style="height: 94px;">
+      </div>
+      <div class="col-7">
+        <div class="text-truncate" style="max-width: 100%;">{{goods?.name}}</div>
+        <div class="row mx-auto mt-3">
+          <div class="col-6 pl-0">
+            <span class="text-danger font-weight-bold">￥{{goods?.salePrice| number:'1.2-2'}}</span><br/>
+            <span class="text-thought">￥{{goods?.originalPrice| number:'1.2-2'}}</span>
+          </div>
+          <button *ngIf="goods?.saleStatus===0" class="col-6 px-0 text-white border-0 rounded">
+            立即抢购
+          </button>
+          <button *ngIf="goods?.saleStatus===1" disabled class="sell-out col-6 px-0 text-white border-0 rounded">
+            已售罄
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+  <div *ngIf="goodses?.length!=0" class="goods row mx-auto clearfix pb-3 px-2">
+    <div *ngFor="let goods of goodses" class="col-6 px-1 mt-2">
+      <div (click)="buyGoods(goods)">
+<!--
+        <img src="./assets/images/carService/del.png" alt="" width="100%">
+-->
+        <img [src]="goods.coverImg" alt="" style="width: 100%; min-height: 9rem">
+        <div class="row mx-auto mt-1 px-2">
+          <div class="goods-details w-100">{{goods?.name}}</div>
+
+          <div class="col-7 my-1 px-0">
+            <span class="text-thought">￥{{numberToFixed(goods?.originalPrice)}}</span><br/>
+            <span style="color: #2185D0;">￥{{numberToFixed(goods?.salePrice)}}</span>
+          </div>
+          <button *ngIf="goods?.saleStatus===0" class="col-5 mt-3 mb-1 px-0 text-white border-0 rounded">
+            立即抢购
+          </button>
+          <button *ngIf="goods?.saleStatus===1" disabled class="sell-out col-5 mt-2 mb-1 px-0 text-white border-0 rounded">
+            已售罄
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div *ngIf="goodses?.length==0">
+    <img style="margin-top: 7rem;" src="./assets/images/carService/noGoods.png" alt="" width="100%"  (click)="banImg($event)">
+  </div>
+
+</div>
+
+<div *ngIf="!down" class="nav-cell">
+  <ul class="classify row mx-auto list-unstyled mb-0">
+    <li class="col-12 px-0 py-2 border-bottom" (click)="checkType(-1,'全部分类')">
+      <span class="px-3">全部分类</span>
+      <i *ngIf="selectAll" class="fa fa-check fa-lg float-right mr-4"></i>
+    </li>
+    <li *ngFor="let carClassify of carClassifyList; let i = index;" class="col-12 px-0 py-2 border-bottom" (click)="checkType(i,carClassify?.name)">
+      <span class="px-3">{{carClassify?.name}}</span>
+      <i *ngIf="carClassify.check" class="fa fa-check fa-lg float-right mr-4"></i>
+    </li>
+  </ul>
+</div>
+<swal #dialog></swal>
+
+<div id="mess_loaddinghtml5" *ngIf="isHaveLoad">
+  <div class="loadding">
+    <div class="loaddingtishi"></div>
+    <div class="spinner">
+      <div class="spinner-container container1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container2">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container3">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+    </div>
+  </div>
+</div>

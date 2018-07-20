@@ -1,0 +1,34 @@
+<div class="container-fluid px-0" [@flyIn]="'inactive'">
+  <div class="row mx-auto">
+    <div class="col-7">
+      <form class="form-horizontal pt-3" #f="ngForm">
+        <div class="row">
+          <div class="col-12 mb-1">
+            <input type="text" class="form-control" name="name" [(ngModel)]="_name" placeholder="请输入姓名" maxlength="10" required>
+          </div>
+          <div class="col-12 mb-1">
+            <input type="tel" class="form-control" name="phone" [(ngModel)]="_phone" placeholder="请输入手机号" maxlength="11" required>
+          </div>
+          <div class="col-12">
+            <input type="text" style="text-transform:uppercase;" name="plateNumber" [(ngModel)]="_plateNumber" class="form-control"
+                   placeholder="请输入车牌号" maxlength="7" autocomplete="off" required>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-5 mt-4 right-img-box">
+      <img *ngIf="type=='2'" src="./assets/images/7-1.png" alt="" (click)="banImg($event)" width="100%">
+      <img *ngIf="type=='1'" src="./assets/images/8-1.png" alt="" (click)="banImg($event)" width="100%">
+      <button type="button" class="btn btn-primary btn-block mt-2" (click)="submit(f.value.name, f.value.phone,f.value.plateNumber)">提交</button>
+    </div>
+
+  </div>
+  <div class="row mx-auto mt-1">
+    <div class="col-12 p-0">
+      <img *ngIf="type=='2'" src="./assets/images/7-11.png" alt="" width="100%">
+      <img *ngIf="type=='1'" src="./assets/images/8-11.png" alt="" width="100%">
+    </div>
+  </div>
+  <swal #dialog></swal>
+</div>

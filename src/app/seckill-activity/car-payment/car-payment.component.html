@@ -1,0 +1,89 @@
+<div class="container-fluid px-0" style="overflow:hidden;font-size: 1rem" [@flyIn]="'inactive'">
+  <div class="row mx-auto px-1 borderB">
+    <div class="col-12 mt-3">
+      <p><strong>商品明细</strong></p>
+      <div>{{goods?.name}}</div>
+    </div>
+    <div class="col-12 mt-2 pb-3">
+      <span>价格</span>
+      <span class="float-right">￥{{numberToFixed(goods?.originalPrice)}} * 1</span>
+    </div>
+  </div>
+
+  <div class="row mx-auto px-1 py-3 borderB">
+    <div class="col-12">
+      <span><strong>支付方式</strong></span>
+    </div>
+    <div class="col-12 py-3" (click)="changeImg1()">
+      <div class="row">
+        <div class="col-10">
+          <img class="fromImg mr-3" src="./assets/images/jian.png"/>
+          <span style=" color: #777777; padding-top:3px;">中国建设银行信用卡支付</span><br>
+        </div>
+        <div class="col-2 text-right">
+          <img class="fromImg-right" [src]="img1"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 pb-2" (click)="changeImg2()">
+      <div class="row">
+        <div class="col-10">
+          <img class="fromImg mr-3" src="./assets/images/wei.png"/>
+          <span style=" color: #777777; padding-top:3px;">微信支付</span>
+        </div>
+        <div class="col-2 text-right">
+          <img class="fromImg-right" [src]="img2"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto px-1 pt-3">
+    <div class="col-12 mb-2">
+      <span>商品金额</span>
+      <span class="float-right" style="color: red">￥{{numberToFixed(goods?.salePrice)}}</span>
+    </div>
+    <div class="col-12">
+      <span>优惠金额</span>
+      <span class="float-right" style="color: red">-￥{{numberToFixed(goods?.originalPrice-goods?.salePrice)}}</span>
+    </div>
+  </div>
+</div>
+
+<nav class="row mx-auto fixed-bottom font text-center">
+  <div class="col-8 border-top">实际支付：<span>￥{{numberToFixed(goods?.salePrice)}}</span></div>
+  <button class="col-4 px-0 btn-block buy" [disabled]="disabled" (click)="addCarOrder()"
+          [class.specialBtn]="disabled">
+    {{btnText}}
+  </button>
+</nav>
+
+
+<swal #dialog></swal>
+
+<div id="mess_loaddinghtml5" *ngIf="isHaveLoad">
+  <div class="loadding">
+    <div class="loaddingtishi"></div>
+    <div class="spinner">
+      <div class="spinner-container container1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container2">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container3">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

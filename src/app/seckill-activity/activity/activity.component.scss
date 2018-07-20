@@ -1,0 +1,57 @@
+.look {
+  padding: 5px 0;
+  border: 1px solid #3ca8d9;
+  border-radius: 100px;
+  font-size: 14px;
+  color: #3ca8d9;
+  margin-top: .4rem;
+}
+.choose {
+  font-size: 14px;
+  color: #666666;
+}
+.col-4 {
+  padding-right: 0;
+  margin-bottom: 10px;
+}
+.price-box {
+  color: #ffffff;
+  position: relative;
+  div {
+    position: absolute;
+  }
+
+  div:nth-of-type(1) {
+    top: 10%;
+    left: 10%;
+  }
+
+  div:nth-of-type(2) {
+    font-size: .62rem;
+    top: 60%;
+    left: 10%;
+  }
+}
+.paddingB70{
+  padding-bottom: 3rem;
+  .buy {
+    border: none;
+    outline: none;
+    float: left;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    //background: #F9733E;
+    font-size: 17px;
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 2rem;
+    margin-top: 20px;
+  }
+
+  .disableClass {
+    background: #ccc !important;
+  }
+
+}
+

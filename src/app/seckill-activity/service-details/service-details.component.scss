@@ -1,0 +1,59 @@
+.fixed-bottom{
+  z-index: 300;
+}
+.bg-blue {
+  background: #50AFDF;
+  color: #fff;
+}
+
+.text-gray {
+  color: #888;
+}
+
+.pb-60 {
+  padding-bottom: 60px;
+}
+
+.border-bottom-5 {
+  border-bottom: 5px solid #dee2e6;
+  .list {
+    line-height: 40px;
+    i {
+      margin-top: 0.78rem;
+    }
+    input {
+      outline: none;
+      color: #555;
+      width: 120px;
+      &::-webkit-input-placeholder {
+        color: #888;
+      }
+    }
+    .result {
+      line-height: 20px;
+      width: 80%;
+      margin-left: 55px;
+      color: #555;
+    }
+  }
+}
+
+.font {
+  height: 60px;
+  line-height: 60px;
+  font-size: 17px;
+  color: #333333;
+  .buy {
+    color: #fff;
+    background: #50AFDF;
+    border: none;
+    outline: none;
+    &:disabled {
+      background: #999;
+    }
+  }
+  .specialBtn {
+    background: #ccc;
+    outline: none;
+  }
+}

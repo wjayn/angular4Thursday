@@ -1,0 +1,9 @@
+@import "../../../styles";
+
+.success-bg-disinfection {
+  @include _bg('../../../assets/images/7-2.png', #FFE3E1);
+}
+
+.success-bg-carWash {
+  @include _bg('../../../assets/images/8-2.png', #FFE3E1);
+}
